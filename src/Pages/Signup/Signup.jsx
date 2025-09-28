@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Signup.css";
 import { FaUser } from "react-icons/fa"; // FontAwesome
 import { MdEmail } from "react-icons/md"; // Material Design
@@ -6,6 +6,32 @@ import { RiLockPasswordFill } from "react-icons/ri"; // Remix Icon
 import { Link } from "react-router-dom";
 
 const Signup = () => {
+  const [credential, setCredential] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  function handleChange(e) {
+    const { name, value } = e;
+    setCredential({
+      ...credential,
+      [name]: value,
+    });
+  }
+
+  function handleSubmit() {
+    fetch("https://e-commerce-backend-1-roxr.onrender.com/api/auth/register", {
+      method: "POST",
+      body: JSON.stringify(credential),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        localStorage.set("token", data.token);
+      });
+  }
+
   return (
     <div className="container">
       <div className="header">
@@ -13,18 +39,36 @@ const Signup = () => {
         <div className="underline"></div>
       </div>
 
-      <form className="inputs">
+      <form className="inputs" onSubmit={(e) => handleSubmit(e)}>
         <div className="input">
           <FaUser className="icon" />
-          <input type="text" placeholder="Enter Username" required />
+          <input
+            type="text"
+            placeholder="Enter Username"
+            name="name"
+            required
+            onChange={(e) => handleChange(e.target)}
+          />
         </div>
         <div className="input">
           <MdEmail className="icon" />
-          <input type="email" placeholder="Enter Email" required />
+          <input
+            type="email"
+            placeholder="Enter Email"
+            name="email"
+            required
+            onClick={(e) => handleChange(e.target)}
+          />
         </div>
         <div className="input">
           <RiLockPasswordFill className="icon" />
-          <input type="password" placeholder="Enter Password" required />
+          <input
+            type="password"
+            name="password"
+            placeholder="Enter Password"
+            required
+            onClick={(e) => handleChange(e.target)}
+          />
         </div>
 
         <div className="submit-container">

@@ -14,6 +14,7 @@ const Navbar = () => {
         <li>
           <a href="/signup">Register</a>
         </li>
+        <span></span>
       </ul>
     </nav>
   );

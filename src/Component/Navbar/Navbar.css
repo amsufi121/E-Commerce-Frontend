@@ -5,14 +5,14 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #333;
+  background-color: #222;
   padding: 1rem 2rem;
   color: #fff;
 }
@@ -25,15 +25,24 @@ body {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  position: relative; /* span ko absolute karne ke liye parent relative */
+}
+
+.nav-links li {
+  position: relative;
 }
 
 .nav-links li a {
   text-decoration: none;
   color: white;
+  font-size: 1em;
+  font-weight: 500;
+  padding: 0.5rem 1.2rem;
+  display: inline-block;
   transition: color 0.3s ease;
+  z-index: 1;
 }
 
 .nav-links li a:hover {
-  color: #00bcd4;
+  color: #ff6e7f;
 }
