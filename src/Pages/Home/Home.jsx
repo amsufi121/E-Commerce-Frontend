@@ -1,9 +1,18 @@
-import React from 'react'
+import React from "react";
+import Products from "../Product/Products";
+import { useNavigate } from "react-router-dom";
+import "./Home.css";
 
 const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+  const navigate = useNavigate();
 
-export default Home
+  return (
+    <div className="hero">
+      <button className="btn" onClick={() => navigate("/Products")}>
+        See Products
+      </button>
+    </div>
+  );
+};
+
+export default Home;

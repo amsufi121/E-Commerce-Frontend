@@ -1,5 +1,27 @@
+:root {
+  /* Backgrounds */
+  --site-bg: #f3f4f6; /* Overall background (light gray) */
+  --navbar-bg: #111827; /* Dark navbar (charcoal black) */
+  --footer-bg: #1f2937; /* Footer background (dark gray) */
+  --card-bg: #ffffff; /* Product card background */
+
+  /* Text Colors */
+  --text-main: #111827; /* Headings - strong dark */
+  --text-body: #374151; /* Paragraphs - softer dark */
+  --text-sub: #6b7280; /* Secondary info text */
+  --text-navbar: #f9fafb; /* Navbar text - light */
+  --text-footer: #d1d5db; /* Footer text - gray */
+  --text-price: #e11d48; /* Price text - modern red/pink */
+
+  /* Buttons */
+  --btn-primary: #facc15; /* Bright Yellow CTA */
+  --btn-primary-hover: #eab308; /* Darker yellow hover */
+  --btn-text: #111827; /* Button text - black */
+}
+
 body {
-  height: 100vh;
-  background: linear-gradient(#ff6e7f, #f8cdda);
+  margin: 0;
+  background: #f3f4f6;
   font-family: "Poppins", sans-serif;
+  position: relative;
 }
