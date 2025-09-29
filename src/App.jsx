@@ -12,13 +12,14 @@ import Navbar from "./Component/Navbar/Navbar";
 import Footer from "./Component/Footer/Footer";
 
 function App() {
+  
   return (
     <div>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/productDetail" element={<ProductDetail />} />
+        <Route path="/productDetail/:id" element={<ProductDetail />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cart" element={<Cart />} />

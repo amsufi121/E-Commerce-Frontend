@@ -3,9 +3,10 @@ import "./Signup.css";
 import { FaUser } from "react-icons/fa"; // FontAwesome
 import { MdEmail } from "react-icons/md"; // Material Design
 import { RiLockPasswordFill } from "react-icons/ri"; // Remix Icon
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [credential, setCredential] = useState({
     name: "",
     email: "",
@@ -20,7 +21,8 @@ const Signup = () => {
     });
   }
 
-  function handleSubmit() {
+  function handleSubmit(e) {
+    e.preventDefault();
     fetch("https://e-commerce-backend-1-roxr.onrender.com/api/auth/register", {
       method: "POST",
       body: JSON.stringify(credential),
@@ -30,6 +32,8 @@ const Signup = () => {
         console.log(data);
         localStorage.set("token", data.token);
       });
+
+    navigate("/login");
   }
 
   return (

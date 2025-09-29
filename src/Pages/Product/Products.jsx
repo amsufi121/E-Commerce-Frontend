@@ -58,7 +58,7 @@ const Products = () => {
             <div className="product-img">
               <img
                 src={product.image}
-                onClick={() => navigate("/ProductDetail")}
+                onClick={() => navigate(`/ProductDetail/${product.id}`)}
               />
             </div>
 

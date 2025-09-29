@@ -10,6 +10,7 @@ const Login = () => {
     password: "",
   });
 
+  const [tok, setToken] = useState(null);
   function handleChange(e) {
     const { email, value } = e;
     setCredentials({
@@ -18,15 +19,18 @@ const Login = () => {
     });
   }
 
-  function handleSubmit() {
+  function handleSubmit(e) {
+    e.preventDefault();
     fetch("https://e-commerce-backend-1-roxr.onrender.com/api/auth/login", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(credetials),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        localStorage.set("token", data.token);
       });
   }
 
